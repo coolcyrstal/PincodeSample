@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#FCA61B"
+    tools:context=".CreatePINCode">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/text_createPINcode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="60dp"
+            android:padding="10dp"
+            android:text="Create PIN code"
+            android:textAlignment="center"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#FFF"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+
+        <in.arjsna.lib.PassCodeView
+            android:id="@+id/create_pin_code_passcodeview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_createPINcode"
+            android:padding="25.0dp"
+            app:digit_size="30.0dp"
+            app:digits="6"
+            app:empty_drawable="@drawable/empty_dot_line"
+            app:filled_drawable="@drawable/fill_dot_line"
+            app:key_text_size="30.0sp" />
+    </RelativeLayout>
+
+</FrameLayout>
