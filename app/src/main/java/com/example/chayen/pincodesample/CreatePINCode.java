@@ -1,15 +1,10 @@
 package com.example.chayen.pincodesample;
 
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.Typeface;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import in.arjsna.passcodeview.PassCodeView;
@@ -24,7 +19,7 @@ public class CreatePINCode extends Fragment {
         // Required empty public constructor
     }
 
-    private PassCodeView create_PIN_passCodeView;
+    private PassCodeView createPinPassCodeView;
     private String pincode;
 
     public static CreatePINCode newInstance() {
@@ -46,11 +41,11 @@ public class CreatePINCode extends Fragment {
 
         View rootview = inflater.inflate(R.layout.fragment_create_pincode, container, false);
 
-        create_PIN_passCodeView = rootview.findViewById(R.id.create_pin_code_passcodeview);
-        TextView promptView = rootview.findViewById(R.id.text_createPINcode);
-        create_PIN_passCodeView.setEmptyDrawable(R.drawable.empty_dot_line);
-        create_PIN_passCodeView.setFilledDrawable(R.drawable.fill_dot_line);
-        create_PIN_passCodeView.setKeyTextColor(getResources().getColor(R.color.colorGray));
+        createPinPassCodeView = rootview.findViewById(R.id.createPinCodePassCodeView);
+//        TextView promptView = rootview.findViewById(R.id.textCreatePinCode);
+        createPinPassCodeView.setEmptyDrawable(R.drawable.empty_dot_line);
+        createPinPassCodeView.setFilledDrawable(R.drawable.filled_dot_line);
+        createPinPassCodeView.setKeyTextColor(getResources().getColor(R.color.colorGray));
 
         bindEvents();
 
@@ -58,12 +53,12 @@ public class CreatePINCode extends Fragment {
     }
 
     private void bindEvents() {
-        create_PIN_passCodeView.setOnTextChangeListener(new PassCodeView.TextChangeListener() {
+        createPinPassCodeView.setOnTextChangeListener(new PassCodeView.TextChangeListener() {
             @Override public void onTextChanged(String text) {
                 if (text.length() == 6) {
                     pincode = text;
                     Fragment fragment = getActivity().getSupportFragmentManager().findFragmentById(R.id.register_pin);
-                    if (fragment instanceof ConfirmPINCode == false) {
+                    if (!(fragment instanceof ConfirmPINCode)) {
                         getActivity().getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.register_pin, ConfirmPINCode.newInstance(pincode), "Confirm PIN code page")
                                 .addToBackStack(null)

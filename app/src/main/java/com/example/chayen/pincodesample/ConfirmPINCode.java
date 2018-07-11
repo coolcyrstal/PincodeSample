@@ -1,8 +1,5 @@
 package com.example.chayen.pincodesample;
 
-import android.content.Context;
-import android.graphics.Typeface;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -23,7 +20,7 @@ public class ConfirmPINCode extends Fragment {
         // Required empty public constructor
     }
 
-    private PassCodeView confirm_PIN_passcodeview;
+    private PassCodeView confirmPinPassCodeView;
     private static String confirmpincode;
 
     public static ConfirmPINCode newInstance(String code) {
@@ -44,11 +41,11 @@ public class ConfirmPINCode extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootview = inflater.inflate(R.layout.fragment_confirm_pincode, container, false);
-        confirm_PIN_passcodeview = (PassCodeView)rootview.findViewById(R.id.confirm_pin_code_passcodeview);
-        TextView promptView = (TextView) rootview.findViewById(R.id.text_confirmPINcode);
-        confirm_PIN_passcodeview.setEmptyDrawable(R.drawable.empty_dot_line);
-        confirm_PIN_passcodeview.setFilledDrawable(R.drawable.fill_dot_line);
-        confirm_PIN_passcodeview.setKeyTextColor(getResources().getColor(R.color.colorGray));
+        confirmPinPassCodeView = (PassCodeView)rootview.findViewById(R.id.confirmPinCodePassCodeView);
+//        TextView promptView = (TextView) rootview.findViewById(R.id.text_confirmPINcode);
+        confirmPinPassCodeView.setEmptyDrawable(R.drawable.empty_dot_line);
+        confirmPinPassCodeView.setFilledDrawable(R.drawable.filled_dot_line);
+        confirmPinPassCodeView.setKeyTextColor(getResources().getColor(R.color.colorGray));
 
         bindEvents();
 
@@ -56,14 +53,14 @@ public class ConfirmPINCode extends Fragment {
     }
 
     private void bindEvents() {
-        confirm_PIN_passcodeview.setOnTextChangeListener(new PassCodeView.TextChangeListener() {
+        confirmPinPassCodeView.setOnTextChangeListener(new PassCodeView.TextChangeListener() {
             @Override public void onTextChanged(String text) {
                 if (text.length() == 6) {
                     if(text.equals(confirmpincode)){
                         getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
                         Toast.makeText(getActivity().getApplicationContext(), text, Toast.LENGTH_SHORT).show();
                     }else{
-                        confirm_PIN_passcodeview.setError(true);
+                        confirmPinPassCodeView.setError(true);
                     }
                 }
             }

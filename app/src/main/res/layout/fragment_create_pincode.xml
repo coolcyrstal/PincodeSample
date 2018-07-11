@@ -12,14 +12,14 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/text_createPINcode"
+            android:id="@+id/textCreatePinCode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="60dp"
             android:padding="10dp"
-            android:text="Create PIN code"
+            android:text="Create PIN Code"
             android:textAlignment="center"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#FFF"
@@ -30,27 +30,27 @@
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:src="@drawable/ic_lock"
-            android:id="@+id/ic_lock_createPINCode"
-            android:layout_below="@+id/text_createPINcode"
+            android:id="@+id/icLockCreatePinCode"
+            android:layout_below="@+id/textCreatePinCode"
             android:layout_centerHorizontal="true" />
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/ic_lock_createPINCode"
+            android:layout_below="@+id/icLockCreatePinCode"
             android:background="@color/colorWhite"
             android:layout_marginTop="80dp">
         </FrameLayout>
 
         <in.arjsna.passcodeview.PassCodeView
-            android:id="@+id/create_pin_code_passcodeview"
+            android:id="@+id/createPinCodePassCodeView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/ic_lock_createPINCode"
+            android:layout_below="@+id/icLockCreatePinCode"
             app:digit_size="30.0dp"
             app:digits="6"
             app:empty_drawable="@drawable/empty_dot_line"
-            app:filled_drawable="@drawable/fill_dot_line"
+            app:filled_drawable="@drawable/filled_dot_line"
             app:key_text_size="30.0sp"
             app:divider_visible="false"/>
     </RelativeLayout>
