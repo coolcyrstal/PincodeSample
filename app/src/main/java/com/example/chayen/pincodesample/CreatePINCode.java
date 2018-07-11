@@ -18,7 +18,7 @@ import in.arjsna.passcodeview.PassCodeView;
 public class CreatePINCode extends Fragment {
 
 
-    private OnFragmentInteractionListener mListener;
+//    private OnFragmentInteractionListener mListener;
 
     public CreatePINCode() {
         // Required empty public constructor
@@ -46,15 +46,14 @@ public class CreatePINCode extends Fragment {
 
         View rootview = inflater.inflate(R.layout.fragment_create_pincode, container, false);
 
-        create_PIN_passCodeView = (PassCodeView)rootview.findViewById(R.id.create_pin_code_passcodeview);
-        TextView promptView = (TextView) rootview.findViewById(R.id.text_createPINcode);
-        Typeface typeFace = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Font-Bold.ttf");
-        create_PIN_passCodeView.setTypeFace(typeFace);
-//        create_PIN_passCodeView.setKeyTextColor(R.color.black_shade);
+        create_PIN_passCodeView = rootview.findViewById(R.id.create_pin_code_passcodeview);
+        TextView promptView = rootview.findViewById(R.id.text_createPINcode);
         create_PIN_passCodeView.setEmptyDrawable(R.drawable.empty_dot_line);
         create_PIN_passCodeView.setFilledDrawable(R.drawable.fill_dot_line);
-        promptView.setTypeface(typeFace);
+        create_PIN_passCodeView.setKeyTextColor(getResources().getColor(R.color.colorWhite));
+
         bindEvents();
+
         return rootview;
     }
 
@@ -76,26 +75,26 @@ public class CreatePINCode extends Fragment {
     }
 
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
+//    @Override
+//    public void onAttach(Context context) {
+//        super.onAttach(context);
+//        if (context instanceof OnFragmentInteractionListener) {
+//            mListener = (OnFragmentInteractionListener) context;
+//        } else {
+//            throw new RuntimeException(context.toString()
+//                    + " must implement OnFragmentInteractionListener");
+//        }
+//    }
+//
+//    @Override
+//    public void onDetach() {
+//        super.onDetach();
+//        mListener = null;
+//    }
 
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
 
-
-    public interface OnFragmentInteractionListener {
-
-        void onFragmentInteraction(Uri uri);
-    }
+//    public interface OnFragmentInteractionListener {
+//
+//        void onFragmentInteraction(Uri uri);
+//    }
 }

@@ -5,6 +5,7 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +17,7 @@ import in.arjsna.passcodeview.PassCodeView;
 
 public class ConfirmPINCode extends Fragment {
 
-    private OnFragmentInteractionListener mListener;
+//    private OnFragmentInteractionListener mListener;
 
     public ConfirmPINCode() {
         // Required empty public constructor
@@ -45,13 +46,12 @@ public class ConfirmPINCode extends Fragment {
         View rootview = inflater.inflate(R.layout.fragment_confirm_pincode, container, false);
         confirm_PIN_passcodeview = (PassCodeView)rootview.findViewById(R.id.confirm_pin_code_passcodeview);
         TextView promptView = (TextView) rootview.findViewById(R.id.text_confirmPINcode);
-        Typeface typeFace = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Font-Bold.ttf");
-        confirm_PIN_passcodeview.setTypeFace(typeFace);
-//        create_PIN_passCodeView.setKeyTextColor(R.color.black_shade);
         confirm_PIN_passcodeview.setEmptyDrawable(R.drawable.empty_dot_line);
         confirm_PIN_passcodeview.setFilledDrawable(R.drawable.fill_dot_line);
-        promptView.setTypeface(typeFace);
+        confirm_PIN_passcodeview.setKeyTextColor(getResources().getColor(R.color.colorWhite));
+
         bindEvents();
+
         return rootview;
     }
 
@@ -59,8 +59,8 @@ public class ConfirmPINCode extends Fragment {
         confirm_PIN_passcodeview.setOnTextChangeListener(new PassCodeView.TextChangeListener() {
             @Override public void onTextChanged(String text) {
                 if (text.length() == 6) {
-                    if(text == confirmpincode){
-                        getActivity().finish();
+                    if(text.equals(confirmpincode)){
+                        getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
                         Toast.makeText(getActivity().getApplicationContext(), text.toString(), Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -69,25 +69,25 @@ public class ConfirmPINCode extends Fragment {
     }
 
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-
-    public interface OnFragmentInteractionListener {
-
-        void onFragmentInteraction(Uri uri);
-    }
+//    @Override
+//    public void onAttach(Context context) {
+//        super.onAttach(context);
+//        if (context instanceof OnFragmentInteractionListener) {
+//            mListener = (OnFragmentInteractionListener) context;
+//        } else {
+//            throw new RuntimeException(context.toString()
+//                    + " must implement OnFragmentInteractionListener");
+//        }
+//    }
+//
+//    @Override
+//    public void onDetach() {
+//        super.onDetach();
+//        mListener = null;
+//    }
+//
+//    public interface OnFragmentInteractionListener {
+//
+//        void onFragmentInteraction(Uri uri);
+//    }
 }
