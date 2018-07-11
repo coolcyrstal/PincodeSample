@@ -50,7 +50,7 @@ public class CreatePINCode extends Fragment {
         TextView promptView = rootview.findViewById(R.id.text_createPINcode);
         create_PIN_passCodeView.setEmptyDrawable(R.drawable.empty_dot_line);
         create_PIN_passCodeView.setFilledDrawable(R.drawable.fill_dot_line);
-        create_PIN_passCodeView.setKeyTextColor(getResources().getColor(R.color.colorWhite));
+        create_PIN_passCodeView.setKeyTextColor(getResources().getColor(R.color.colorGray));
 
         bindEvents();
 

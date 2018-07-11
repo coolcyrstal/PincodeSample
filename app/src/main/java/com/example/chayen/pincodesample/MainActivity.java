@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.register_pin);
-        if (fragment instanceof ConfirmPINCode == false) {
+        if (fragment instanceof CreatePINCode == false) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.register_pin, CreatePINCode.newInstance(), "Create PIN code page")
                     .addToBackStack(null)

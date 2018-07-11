@@ -26,16 +26,33 @@
             android:textSize="25dp"
             android:textStyle="bold" />
 
+        <ImageView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:src="@drawable/ic_lock"
+            android:id="@+id/ic_lock_confirmPINCode"
+            android:layout_below="@+id/text_confirmPINcode"
+            android:layout_centerHorizontal="true" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/ic_lock_confirmPINCode"
+            android:background="@color/colorWhite"
+            android:layout_marginTop="80dp">
+        </FrameLayout>
+
         <in.arjsna.passcodeview.PassCodeView
             android:id="@+id/confirm_pin_code_passcodeview"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/text_confirmPINcode"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/ic_lock_confirmPINCode"
             android:padding="25.0dp"
             app:digit_size="30.0dp"
             app:digits="6"
             app:empty_drawable="@drawable/empty_dot_line"
             app:filled_drawable="@drawable/fill_dot_line"
-            app:key_text_size="30.0sp" />
+            app:key_text_size="30.0sp"
+            app:divider_visible="false"/>
     </RelativeLayout>
 </FrameLayout>

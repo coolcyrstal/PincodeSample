@@ -34,16 +34,25 @@
             android:layout_below="@+id/text_createPINcode"
             android:layout_centerHorizontal="true" />
 
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/ic_lock_createPINCode"
+            android:background="@color/colorWhite"
+            android:layout_marginTop="80dp">
+        </FrameLayout>
+
         <in.arjsna.passcodeview.PassCodeView
             android:id="@+id/create_pin_code_passcodeview"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_below="@+id/ic_lock_createPINCode"
             app:digit_size="30.0dp"
             app:digits="6"
             app:empty_drawable="@drawable/empty_dot_line"
             app:filled_drawable="@drawable/fill_dot_line"
-            app:key_text_size="30.0sp" />
+            app:key_text_size="30.0sp"
+            app:divider_visible="false"/>
     </RelativeLayout>
 
 </FrameLayout>

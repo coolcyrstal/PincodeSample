@@ -48,7 +48,7 @@ public class ConfirmPINCode extends Fragment {
         TextView promptView = (TextView) rootview.findViewById(R.id.text_confirmPINcode);
         confirm_PIN_passcodeview.setEmptyDrawable(R.drawable.empty_dot_line);
         confirm_PIN_passcodeview.setFilledDrawable(R.drawable.fill_dot_line);
-        confirm_PIN_passcodeview.setKeyTextColor(getResources().getColor(R.color.colorWhite));
+        confirm_PIN_passcodeview.setKeyTextColor(getResources().getColor(R.color.colorGray));
 
         bindEvents();
 
@@ -61,7 +61,9 @@ public class ConfirmPINCode extends Fragment {
                 if (text.length() == 6) {
                     if(text.equals(confirmpincode)){
                         getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-                        Toast.makeText(getActivity().getApplicationContext(), text.toString(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity().getApplicationContext(), text, Toast.LENGTH_SHORT).show();
+                    }else{
+                        confirm_PIN_passcodeview.setError(true);
                     }
                 }
             }
