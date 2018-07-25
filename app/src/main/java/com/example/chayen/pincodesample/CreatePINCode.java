@@ -1,13 +1,14 @@
 package com.example.chayen.pincodesample;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import in.arjsna.passcodeview.PassCodeView;
+import com.example.passcodeview.PassCodeView;
 
 
 public class CreatePINCode extends Fragment {
@@ -36,13 +37,12 @@ public class CreatePINCode extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         View rootview = inflater.inflate(R.layout.fragment_create_pincode, container, false);
 
         createPinPassCodeView = rootview.findViewById(R.id.createPinCodePassCodeView);
-//        TextView promptView = rootview.findViewById(R.id.textCreatePinCode);
         createPinPassCodeView.setEmptyDrawable(R.drawable.empty_dot_line);
         createPinPassCodeView.setFilledDrawable(R.drawable.filled_dot_line);
         createPinPassCodeView.setKeyTextColor(getResources().getColor(R.color.colorGray));

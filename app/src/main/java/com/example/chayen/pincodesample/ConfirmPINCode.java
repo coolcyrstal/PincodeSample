@@ -1,6 +1,7 @@
 package com.example.chayen.pincodesample;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
@@ -9,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import in.arjsna.passcodeview.PassCodeView;
+import com.example.passcodeview.PassCodeView;
 
 
 public class ConfirmPINCode extends Fragment {
@@ -37,12 +38,11 @@ public class ConfirmPINCode extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootview = inflater.inflate(R.layout.fragment_confirm_pincode, container, false);
-        confirmPinPassCodeView = (PassCodeView)rootview.findViewById(R.id.confirmPinCodePassCodeView);
-//        TextView promptView = (TextView) rootview.findViewById(R.id.text_confirmPINcode);
+        confirmPinPassCodeView = rootview.findViewById(R.id.confirmPinCodePassCodeView);
         confirmPinPassCodeView.setEmptyDrawable(R.drawable.empty_dot_line);
         confirmPinPassCodeView.setFilledDrawable(R.drawable.filled_dot_line);
         confirmPinPassCodeView.setKeyTextColor(getResources().getColor(R.color.colorGray));
@@ -57,6 +57,7 @@ public class ConfirmPINCode extends Fragment {
             @Override public void onTextChanged(String text) {
                 if (text.length() == 6) {
                     if(text.equals(confirmpincode)){
+                        assert getFragmentManager() != null;
                         getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
                         Toast.makeText(getActivity().getApplicationContext(), text, Toast.LENGTH_SHORT).show();
                     }else{
