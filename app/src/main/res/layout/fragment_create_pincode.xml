@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="10dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="30dp"
             android:padding="10dp"
             android:text="Create PIN Code"
             android:textAlignment="center"
@@ -39,15 +39,32 @@
             android:layout_height="match_parent"
             android:layout_below="@+id/icLockCreatePinCode"
             android:background="@color/colorWhite"
-            android:layout_marginTop="80dp">
+            android:layout_marginTop="110dp">
         </FrameLayout>
+
+        <TextView
+            android:id="@+id/textCreatePinCode2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="60dp"
+            android:layout_below="@+id/icLockCreatePinCode"
+            android:padding="10dp"
+            android:text="Please input your pin code"
+            android:textAlignment="center"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#FFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <com.example.passcodeview.PassCodeView
             android:id="@+id/createPinCodePassCodeView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/icLockCreatePinCode"
-            app:digit_size="30.0dp"
+            app:digit_vertical_padding="60dp"
+            app:digit_size="35.0dp"
             app:digits="6"
             app:empty_drawable="@drawable/empty_dot_line"
             app:filled_drawable="@drawable/filled_dot_line"

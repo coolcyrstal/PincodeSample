@@ -93,8 +93,7 @@ public class PassCodeView extends View {
         .obtainStyledAttributes(attrs, R.styleable.PassCodeView, defStyleAttr, defStyleRes);
     try {
       digits = values.getInteger(R.styleable.PassCodeView_digits, 4);
-      float digitSize = values.getDimension(R.styleable.PassCodeView_digit_size,
-          getResources().getDimension(R.dimen.drawableDimen));
+      float digitSize = values.getDimension(R.styleable.PassCodeView_digit_size, getResources().getDimension(R.dimen.drawableDimen));
       keyTextSize = values.getDimension(R.styleable.PassCodeView_key_text_size,
           getResources().getDimension(R.dimen.key_text_size));
       dividerVisible = values.getBoolean(R.styleable.PassCodeView_divider_visible, true);
@@ -177,7 +176,7 @@ public class PassCodeView extends View {
    */
   private void computeKeyboardStartXY() {
     kpStartX = 0;
-    kpStartY = drawableHeight + digitVerticalPadding;
+    kpStartY = drawableHeight * 15 / 10 + digitVerticalPadding ;
     keyWidth = getMeasuredWidth() / KEY_PAD_COLS;
     keyHeight = (getMeasuredHeight() - (drawableHeight + digitVerticalPadding)) / KEY_PAD_ROWS;
     initialiseKeyRects();
@@ -225,9 +224,10 @@ public class PassCodeView extends View {
   private Bitmap getBitmap(int resId) {
     Drawable drawable = getResources().getDrawable(resId);
     Canvas canvas = new Canvas();
-    Bitmap bitmap = Bitmap.createBitmap(drawableWidth, drawableHeight, Bitmap.Config.ARGB_8888);
+    Bitmap bitmap = Bitmap.createBitmap(drawableWidth* 7 / 10, drawableHeight, Bitmap.Config.ARGB_8888);
+    Log.d("testCheck", "" + drawableWidth + "," + drawableHeight);
     canvas.setBitmap(bitmap);
-    drawable.setBounds(0, 0, drawableWidth, drawableHeight);
+    drawable.setBounds(0, 0, drawableWidth* 7 / 10, drawableHeight );
     drawable.draw(canvas);
     return bitmap;
   }
